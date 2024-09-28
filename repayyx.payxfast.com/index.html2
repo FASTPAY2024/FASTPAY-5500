@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Payment Page</title>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Payment</h1>
+        <form id="paymentForm">
+            <label for="amount">Amount</label>
+            <div class="input-with-button">
+                <input type="text" id="amount" value="₹ 1600" readonly>
+                <button type="button" class="copy-btn" data-clipboard-target="#amount">Copy</button>
+            </div>
+
+            <label for="vpa">VPA/UPI</label>
+            <div class="input-with-button">
+                <input type="text" id="vpa" value="Babbi9084@iob" readonly>
+                <button type="button" class="copy-btn" data-clipboard-target="#vpa">Copy</button>
+            </div>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" value="TEETU." readonly>
+
+            <h2>Select payment method and pay</h2>
+            <div class="payment-methods">
+                <label><input type="radio" name="payment" value="PhonePe"> PhonePe</label>
+                <label><input type="radio" name="payment" value="Paytm"> Paytm</label>
+                <label><input type="radio" name="payment" value="GPay"> G Pay</label>
+                <label><input type="radio" name="payment" value="UPI"> UPI</label>
+            </div>
+
+            <label for="utr">UTR</label>
+            <input type="text" id="utr" placeholder="Input UTR number">
+
+            <button type="button" class="btn-primary" id="submitUtrButton">Submit UTR</button>
+            <button type="button" class="btn-secondary">Pay failed (Try bank account)</button>
+        </form>
+        
+        <p class="footer">Dear customers: Please give priority to this channel to recharge! Support UPI account withdrawal! ICICI Bank guarantee! Safe and reliable!</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="utrModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirm UTR Submission</h2>
+            <p>Are you sure you want to submit the UTR number?</p>
+            <button id="confirmButton">Yes, Submit</button>
+            <button class="closeModal">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
