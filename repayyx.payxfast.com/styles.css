@@ -6,88 +6,58 @@ body {
 }
 
 .box1 {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s; 
+    transition: transform 0.3s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-table {
-    width: 100%;
-    margin: 10px 0;
+.box1:hover {
+    transform: scale(1.02);
 }
 
 .cpb {
-    background-color: #007bff;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .cpb:hover {
-    background-color: #0056b3; 
-}
-
-.vpainp {
-    width: calc(100% - 100px);
-    padding: 6px;
-    border: none;  /* No border for VPA/UPI input */
-    background-color: #f4f4f4; /* Distinguishing background */
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.1); /* Soft inner shadow */
-}
-
-.a1 {
-    text-align: center;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.gtwImgs {
-    width: 50px;
-    height: auto;
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
 .inp {
-    width: calc(100% - 16px);
-    padding: 8px;
-    margin: 10px 0;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
-
-.inp:focus {
-    border-color: #007bff; /* Highlight on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
+    border-radius: 5px;
 }
 
 .btn1, .btn2 {
-    padding: 10px 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 48%; /* Responsive button width */
+    transition: background 0.3s, transform 0.3s;
 }
 
 .btn1 {
-    background-color: #28a745;
+    background-color: #007BFF;
     color: white;
 }
 
 .btn1:hover {
-    background-color: #218838;
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .btn2 {
@@ -97,35 +67,36 @@ table {
 
 .btn2:hover {
     background-color: #c82333;
+    transform: scale(1.05);
 }
 
-/* Modal styles */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    position: relative;
-    background-color: white;
-    margin: 15% auto; 
+    background-color: #fefefe;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    border-radius: 5px;
-    width: 80%; 
-    animation: slideIn 0.5s; 
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    animation: fadeIn 0.5s;
 }
 
-@keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.modal-text {
+    color: #333;
+    font-size: 16px;
+    text-align: center;
 }
 
 .close {
@@ -135,47 +106,30 @@ table {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-/* Modal button styles */
-#confirmButton, .closeModal {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; 
+@keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
 }
 
-.closeModal {
-    background-color: #dc3545; 
-}
-
-#confirmButton:hover,
-.closeModal:hover {
-    background-color: #0056b3; 
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
     .box1 {
-        width: 100%; 
-        padding: 10px; 
+        padding: 15px;
     }
 
-    .modal-content {
-        width: 90%; 
-        margin: 10% auto; 
+    .btn1, .btn2, .cpb {
+        width: 100%;
+        margin: 5px 0;
+        font-size: 16px;
     }
 
-    .btn1, .btn2 {
-        width: 90%; /* Full width buttons on mobile */
-        margin-top: 10px; /* Space between buttons */
+    .inp {
+        width: 95%;
     }
 }
