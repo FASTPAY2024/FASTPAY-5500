@@ -39,16 +39,18 @@ table {
     background-color: #0056b3; 
 }
 
-.upi-display {
-    background-color: #f4f4f4; /* Similar to VPA/UPI field */
+.vpainp {
+    width: calc(100% - 100px);
     padding: 6px;
-    border-radius: 4px;
-    text-align: right; /* Align text */
+    border: none;  /* No border for VPA/UPI input */
+    background-color: #f4f4f4; /* Distinguishing background */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1); /* Soft inner shadow */
 }
 
 .a1 {
     text-align: center;
     font-weight: bold;
+    margin: 10px 0;
 }
 
 .gtwImgs {
