@@ -39,11 +39,11 @@ table {
     background-color: #0056b3; 
 }
 
-.vpainp {
-    width: calc(100% - 100px);
+.upi-display {
+    background-color: #f4f4f4; /* Similar to VPA/UPI field */
     padding: 6px;
-    border: none;  /* Removed the border from VPA/UPI input */
-    background-color: #f4f4f4; /* Something to distinguish it */
+    border-radius: 4px;
+    text-align: right; /* Align text */
 }
 
 .a1 {
@@ -62,6 +62,12 @@ table {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.inp:focus {
+    border-color: #007bff; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
 }
 
 .btn1, .btn2 {
@@ -70,6 +76,7 @@ table {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 48%; /* Responsive button width */
 }
 
 .btn1 {
@@ -163,5 +170,10 @@ table {
     .modal-content {
         width: 90%; 
         margin: 10% auto; 
+    }
+
+    .btn1, .btn2 {
+        width: 90%; /* Full width buttons on mobile */
+        margin-top: 10px; /* Space between buttons */
     }
 }
