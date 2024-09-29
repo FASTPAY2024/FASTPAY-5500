@@ -20,8 +20,8 @@ body {
 }
 
 .cpb {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #f8f8f8;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -30,7 +30,7 @@ body {
 }
 
 .cpb:hover {
-    background-color: #45a049;
+    background-color: #f8f8f8;
     transform: scale(1.05);
 }
 
@@ -66,7 +66,7 @@ body {
 }
 
 .btn2:hover {
-    background-color: #c82333;
+    background-color: #ff0000;
     transform: scale(1.05);
 }
 
@@ -83,10 +83,10 @@ body {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #ffffff;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #002aff;
     width: 80%;
     max-width: 400px;
     border-radius: 10px;
@@ -94,20 +94,20 @@ body {
 }
 
 .modal-text {
-    color: #333;
+    color: #002aff;
     font-size: 16px;
     text-align: center;
 }
 
 .close {
-    color: #aaa;
+    color: blue;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
 .close:hover, .close:focus {
-    color: black;
+    color: blue;
     text-decoration: none;
     cursor: pointer;
 }
