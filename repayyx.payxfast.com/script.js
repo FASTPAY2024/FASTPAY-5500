@@ -1,50 +1,49 @@
-function copyUPI() {
-    var copyText = document.getElementById("upi_inp");
-    copyText.select();
-    document.execCommand("copy");
-    alert("UPI Copy Success.");
-}
-
 function copyAmount() {
-    const amountText = "₹ 4200";
-    navigator.clipboard.writeText(amountText).then(() => {
-        alert("Amount Copied: " + amountText);
+    const amount = '₹ 4200';
+    navigator.clipboard.writeText(amount).then(() => {
+        showPopup('copyModal', 'Amount copied to clipboard!');
     }).catch(err => {
-        console.error('Failed to copy: ', err);
+        showPopup('copyModal', 'Failed to copy amount!');
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById("utrModal");
-    const btn = document.getElementById("submitUtrButton");
-    const closeSpan = document.getElementsByClassName("close")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    closeSpan.onclick = function() {
-        closeModal();
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-
-    document.getElementById("confirmButton").onclick = function() {
-        alert("UTR submitted successfully!");
-        closeModal();
-    }
-
-    document.querySelectorAll('.closeModal').forEach(button => {
-        button.onclick = function() {
-            closeModal();
-        }
+function copyUPI() {
+    const upi = 'pritishdas8258-1@okaxis';
+    navigator.clipboard.writeText(upi).then(() => {
+        showPopup('copyModal', 'UPI copied to clipboard!');
+    }).catch(err => {
+        showPopup('copyModal', 'Failed to copy UPI!');
     });
+}
 
-    function closeModal() {
-        modal.style.display = "none";
+function showPopup(modalId, message) {
+    document.getElementById(modalId).style.display = "block";
+    document.getElementById('copyMessage').innerText = message;
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
+document.getElementById('submitUtrButton').onclick = function() {
+    document.getElementById('utrModal').style.display = "block";
+};
+
+document.getElementById('confirmButton').onclick = function() {
+    const utrValue = document.getElementById('utrInput').value;
+    if (utrValue) {
+        alert('UTR submitted: ' + utrValue);
+        closeModal('utrModal');
+    } else {
+        alert('Please enter a UTR number before submitting.');
     }
-});
+};
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    if (event.target == document.getElementById('copyModal')) {
+        closeModal('copyModal');
+    } else if (event.target == document.getElementById('utrModal')) {
+        closeModal('utrModal');
+    }
+};
