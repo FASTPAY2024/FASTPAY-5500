@@ -1,50 +1,77 @@
-function copyUPI() {
-    var copyText = document.getElementById("upi_inp");
-    copyText.select();
-    document.execCommand("copy");
-    alert("UPI Copy Success.");
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    opacity: 0; /* Start completely transparent */
+    transition: opacity 0.3s ease; /* Transition for fade effect */
 }
 
-function copyAmount() {
-    const amountText = "₹ 4200";
-    navigator.clipboard.writeText(amountText).then(() => {
-        alert("Amount Copied: " + amountText);
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-    });
+.modal.show {
+    display: block; /* Show the modal */
+    opacity: 1; /* Fully visible */
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById("utrModal");
-    const btn = document.getElementById("submitUtrButton");
-    const closeSpan = document.getElementsByClassName("close")[0];
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    animation: slideIn 0.3s ease; /* Slide in effect */
+}
 
-    btn.onclick = function() {
-        modal.style.display = "block";
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
     }
-
-    closeSpan.onclick = function() {
-        closeModal();
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
+}
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
-    document.getElementById("confirmButton").onclick = function() {
-        alert("UTR submitted successfully!");
-        closeModal();
-    }
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-    document.querySelectorAll('.closeModal').forEach(button => {
-        button.onclick = function() {
-            closeModal();
-        }
-    });
+#confirmButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-    function closeModal() {
-        modal.style.display = "none";
-    }
-});
+.closeModal {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#confirmButton:hover, .closeModal:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
